@@ -31,7 +31,6 @@
     KYJViewController *rootView =  (KYJViewController *)self.window.rootViewController;
     [rootView.locationManager stopUpdatingLocation];
     NSLog(@"Entering Background now");
-    NSLog(@"Note Location Arrow not turning off! @44 on Piazza");
     
 }
 
