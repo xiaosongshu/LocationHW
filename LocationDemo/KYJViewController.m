@@ -27,18 +27,6 @@
     
         // Set a movement threshold for new events.
         self.locationManager.distanceFilter = 1000;
-    
-        if ([CLLocationManager locationServicesEnabled]){
-            [self.locationManager startUpdatingLocation];
-        }
-        else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Service Disabled"
-                                                            message:@"To re-enable, please go to Settings and turn on Location Service for this app."
-                                                            delegate:nil
-                                                            cancelButtonTitle:@"OK"
-                                                            otherButtonTitles:nil];
-            [alert show];            
-        }
 }
 
 - (void)didReceiveMemoryWarning

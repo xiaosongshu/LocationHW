@@ -43,9 +43,22 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    KYJViewController *rootView =  (KYJViewController *)self.window.rootViewController;
-    [rootView.locationManager startUpdatingLocation];
+    
     NSLog(@"Entering Foreground now");
+    KYJViewController *rootView =  (KYJViewController *)self.window.rootViewController;
+    
+    if ([CLLocationManager locationServicesEnabled]){
+        [rootView.locationManager startUpdatingLocation];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Service Disabled"
+                                                        message:@"To re-enable, please go to Settings and turn on Location Service for this app."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
